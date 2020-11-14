@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 't
 import { User } from './user.entity'
 
 @Entity()
-export class RefreshTokenEntity implements IRefreshToken {
+export class RefreshToken implements IRefreshToken {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
