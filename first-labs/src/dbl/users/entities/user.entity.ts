@@ -1,5 +1,7 @@
-import { IUser, IUserRole } from '../../../core/interfaces'
-import { Column, PrimaryGeneratedColumn } from 'typeorm/index'
+import { IUser } from '../../../core/interfaces'
+import { Column, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm/index'
+import { UserRole } from './user-role.entity'
+import { Storage } from '../../storages/entities'
 
 export class User implements IUser {
   @PrimaryGeneratedColumn('uuid')
@@ -23,6 +25,10 @@ export class User implements IUser {
   @Column()
   roleId: string
 
-  // TODO : insert relations and entity types
-  role?: IUserRole
+  @ManyToOne(() => UserRole)
+  @JoinColumn({ name: 'roleId' })
+  role?: UserRole
+
+  @OneToMany(() => Storage, storage => storage.user)
+  storage: Storage
 }

@@ -1,4 +1,5 @@
 import { IUserRole } from './user-role.interface'
+import { IStorage } from '../../storages/entities'
 
 export interface IUser {
   id: string
@@ -10,4 +11,5 @@ export interface IUser {
   roleId: string
 
   role?: IUserRole
+  storage?: IStorage
 }

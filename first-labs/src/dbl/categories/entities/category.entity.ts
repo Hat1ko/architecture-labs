@@ -1,5 +1,14 @@
-import { IBook, ICategory, IUser } from '../../../core/interfaces'
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm/index'
+import { ICategory } from '../../../core/interfaces'
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm/index'
+import { Book } from '../../books/entities'
+import { User } from '../../users/entities'
 
 @Entity('category')
 export class Category implements ICategory {
@@ -15,7 +24,10 @@ export class Category implements ICategory {
   @Column()
   creatorId: string
 
-  // todo: insert relations + entity types
-  creator: IUser
-  books: IBook[]
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'creatorId' })
+  creator: User
+
+  @OneToMany(() => Book, book => book.category)
+  books: Book[]
 }

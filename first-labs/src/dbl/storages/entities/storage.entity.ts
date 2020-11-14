@@ -1,5 +1,14 @@
-import { IBook, IStorage, IUser } from '../../../core/interfaces'
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm/index'
+import { IStorage } from '../../../core/interfaces'
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm/index'
+import { User } from '../../users/entities'
+import { Book } from '../../books/entities'
 
 @Entity('storage')
 export class Storage implements IStorage {
@@ -9,7 +18,10 @@ export class Storage implements IStorage {
   @Column()
   userId: string
 
-  //TODO: insert relations and entity types
-  user?: IUser
-  books?: IBook[]
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'userId' })
+  user?: User
+
+  @OneToMany(() => Book, book => book.addedBy)
+  books?: Book[]
 }

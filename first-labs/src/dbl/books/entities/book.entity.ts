@@ -1,5 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm/index'
-import { IBook, ICategory, IStorage, IUser } from '../../../core/interfaces'
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm/index'
+import { IBook } from '../../../core/interfaces'
+import { User } from '../../users/entities'
+import { Category } from '../../categories/entities'
+import { Storage } from '../../storages/entities'
 
 @Entity('book')
 export class Book implements IBook {
@@ -24,11 +27,18 @@ export class Book implements IBook {
   @Column()
   addedById: string
 
-  @Column()
+  @Column({ nullable: true })
   description: string
 
-  // TODO: add relations
-  addedBy: IUser // TODO: set User as entity
-  category: ICategory // TODO: set Category as entity
-  storage: IStorage
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'addedById' })
+  addedBy: User
+
+  @ManyToOne(() => Category)
+  @JoinColumn({ name: 'categoryId' })
+  category: Category
+
+  @ManyToOne(() => Storage)
+  @JoinColumn({ name: 'storageId' })
+  storage: Storage
 }

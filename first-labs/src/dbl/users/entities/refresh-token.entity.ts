@@ -1,5 +1,6 @@
-import {IRefreshToken, IUser} from '../../../core/interfaces'
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm/index";
+import { IRefreshToken, IUser } from '../../../core/interfaces'
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm/index'
+import { User } from './user.entity'
 
 @Entity()
 export class RefreshTokenEntity implements IRefreshToken {
@@ -12,6 +13,7 @@ export class RefreshTokenEntity implements IRefreshToken {
   @Column()
   userId: string
 
-  // TODO: add relations and entity types
-  user?: IUser
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'userId' })
+  user?: User
 }
