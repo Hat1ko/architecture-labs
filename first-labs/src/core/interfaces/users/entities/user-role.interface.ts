@@ -5,5 +5,5 @@ export interface IUserRole {
   key: string
   name: string
 
-  user: IUser
+  user?: IUser
 }

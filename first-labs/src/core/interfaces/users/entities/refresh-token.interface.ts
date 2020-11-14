@@ -5,5 +5,5 @@ export interface IRefreshToken {
   token: string
   userId: string
 
-  user: IUser
+  user?: IUser
 }

@@ -9,5 +9,5 @@ export interface IUser {
   isActive: boolean
   roleId: string
 
-  role: IUserRole
+  role?: IUserRole
 }

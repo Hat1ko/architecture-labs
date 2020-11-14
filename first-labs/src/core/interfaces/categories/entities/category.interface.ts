@@ -7,6 +7,6 @@ export interface ICategory {
   description: string
   creatorId: string
 
-  creator: IUser
-  books: IBook[]
+  creator?: IUser
+  books?: IBook[]
 }
