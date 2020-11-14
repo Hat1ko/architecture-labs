@@ -53,6 +53,10 @@ module.exports = {
     { name: 'test' },
 
     { name: 'dbl' },
+    { name: 'users' },
+    { name: 'storages' },
+    { name: 'books' },
+    { name: 'categories' },
   ],
 
   // Возможность задать спец ОБЛАСТЬ для определенного типа коммита (пример для 'fix')

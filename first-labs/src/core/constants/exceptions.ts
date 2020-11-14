@@ -11,7 +11,7 @@ export const invalidActivationCodeException = new BadRequestException('Invalid a
 export const userByEmailNotFoundedException = new NotFoundException(
     'User with this email not found',
 )
-export const invalidUserRoleException = new InternalServerErrorException('Invalid user role')
+export const invalidUserRoleException = new InternalServerErrorException('Invalid users role')
 export const userAlreadyExistException = new ConflictException('User already exists')
 export const failedToCreateUserException = new InternalServerErrorException('Failed to create User')
 export const failedToCreateClientException = new InternalServerErrorException(
