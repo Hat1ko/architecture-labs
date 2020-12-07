@@ -1,0 +1,7 @@
+export * from './confirm-email-code-req.dto'
+export * from './fb-login-req.dto'
+export * from './reset-activation-code.dto'
+export * from './reset-password-code-req.dto'
+export * from './reset-password-req.dto'
+export * from './reset-token.dto'
+export * from './start-reset-password-req.dto'

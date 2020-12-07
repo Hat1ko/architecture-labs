@@ -1,2 +1,1 @@
-// export * from './req'
-// export * from './res'
+export * from './user-create-dto.interface'

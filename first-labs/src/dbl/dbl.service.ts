@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import {Inject, Injectable} from '@nestjs/common'
 import {
   IBooksRepository,
   ICategoriesRepository,
@@ -14,22 +14,23 @@ import {
   STORAGES_REPOSITORY,
   USER_REPOSITORY,
   USER_ROLES_REPOSITORY,
-} from '../core/providers/providers.const'
+} from '../core'
 
 @Injectable()
 export class DBLService {
   constructor(
     @Inject(BOOKS_REPOSITORY)
-    private readonly booksRepository: IBooksRepository,
+    public readonly booksRepository: IBooksRepository,
     @Inject(CATEGORIES_REPOSITORY)
-    private readonly categoriesRepository: ICategoriesRepository,
+    public readonly categoriesRepository: ICategoriesRepository,
     @Inject(STORAGES_REPOSITORY)
-    private readonly storagesRepository: IStoragesRepository,
+    public readonly storagesRepository: IStoragesRepository,
     @Inject(REFRESH_TOKENS_REPOSITORY)
-    private readonly refreshTokensRepository: IRefreshTokensRepository,
+    public readonly refreshTokensRepository: IRefreshTokensRepository,
     @Inject(USER_ROLES_REPOSITORY)
-    private readonly userRolesRepository: IUserRolesRepository,
+    public readonly userRolesRepository: IUserRolesRepository,
     @Inject(USER_REPOSITORY)
-    private readonly usersRepository: IUsersRepository,
-  ) {}
+    public readonly usersRepository: IUsersRepository,
+  ) {
+  }
 }
