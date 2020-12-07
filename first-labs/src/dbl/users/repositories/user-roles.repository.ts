@@ -1,9 +1,9 @@
 import { ExtendedRepository } from '../../extended.repository'
 import { UserRole } from '../entities'
 import { IUserRolesRepository } from '../../../core/interfaces'
-import { Injectable } from '@nestjs/common'
+import { EntityRepository } from 'typeorm/index'
 
-@Injectable()
+@EntityRepository(UserRole)
 export class UserRolesRepository
   extends ExtendedRepository<UserRole>
   implements IUserRolesRepository {}

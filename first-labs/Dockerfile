@@ -22,5 +22,7 @@ RUN cd /home/node/app && ls
 WORKDIR /home/node/app
 COPY . /home/node/app
 
+USER root
+
 RUN cd /home/node/app && npm i --unsafe-perm=true
 

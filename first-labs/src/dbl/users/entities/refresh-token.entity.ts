@@ -2,7 +2,7 @@ import { IRefreshToken, IUser } from '../../../core/interfaces'
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm/index'
 import { User } from './user.entity'
 
-@Entity()
+@Entity('refresh-token')
 export class RefreshToken implements IRefreshToken {
   @PrimaryGeneratedColumn('uuid')
   id: string

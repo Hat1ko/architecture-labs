@@ -1,7 +1,8 @@
 import { IUserRole } from '../../../core/interfaces'
-import { Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm/index'
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm/index'
 import { User } from './user.entity'
 
+@Entity('user-role')
 export class UserRole implements IUserRole {
   @PrimaryGeneratedColumn('uuid')
   id: string

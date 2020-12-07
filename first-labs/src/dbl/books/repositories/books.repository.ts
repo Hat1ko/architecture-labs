@@ -1,7 +1,7 @@
 import { ExtendedRepository } from '../../extended.repository'
 import { Book } from '../entities'
 import { IBooksRepository } from '../../../core/interfaces'
-import { Injectable } from '@nestjs/common'
+import { EntityRepository } from 'typeorm/index'
 
-@Injectable()
+@EntityRepository(Book)
 export class BooksRepository extends ExtendedRepository<Book> implements IBooksRepository {}

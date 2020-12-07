@@ -1,9 +1,9 @@
 import { ExtendedRepository } from '../../extended.repository'
 import { Storage } from '../entities'
 import { IStoragesRepository } from '../../../core/interfaces'
-import { Injectable } from '@nestjs/common'
+import { EntityRepository } from 'typeorm/index'
 
-@Injectable()
+@EntityRepository(Storage)
 export class StoragesRepository
   extends ExtendedRepository<Storage>
   implements IStoragesRepository {}

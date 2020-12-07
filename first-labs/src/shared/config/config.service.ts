@@ -28,11 +28,11 @@ export class ConfigService implements IConfigService {
   getPostgresConfig(): TypeOrmModuleOptions {
     return {
       type: this.getOrDef('DB_TYPE', 'postgres'),
-      host: this.getOrDef('DB_HOST', 'strangeproject-postgres'),
+      host: this.getOrDef('DB_HOST', 'db-postgres'),
       port: this.getOrDef('DB_PORT', 5432),
       username: this.getOrDef('DB_USERNAME', 'postgres'),
       password: this.getOrDef('DB_PASSWORD', 'postgres'),
-      database: this.getOrDef('DB_DATABASE', 'strangeproject'),
+      database: this.getOrDef('DB_DATABASE', 'library'),
       synchronize: this.getOrDef('DB_SYNC', true),
       keepConnectionAlive: true,
       entities: Entities,

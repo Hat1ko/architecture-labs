@@ -1,9 +1,9 @@
 import { ExtendedRepository } from '../../extended.repository'
 import { RefreshToken } from '../entities'
 import { IRefreshTokensRepository } from '../../../core/interfaces'
-import { Injectable } from '@nestjs/common'
+import { EntityRepository } from 'typeorm/index'
 
-@Injectable()
+@EntityRepository(RefreshToken)
 export class RefreshTokensRepository
   extends ExtendedRepository<RefreshToken>
   implements IRefreshTokensRepository {}
